@@ -6,6 +6,8 @@ buildscript {
 }
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: "com.gradle.plugin-publish"
 
 
 // In this section you declare where to find the dependencies of your project
@@ -26,13 +28,13 @@ group = "com.smojum.deploy.rhel"
 
 pluginBundle {
 	website = 'http://www.gradle.org/'
-	vcsUrl = 'https://github.com/gradle/gradle'
+	vcsUrl = 'https://github.com/smojum/gradle-plugin/tree/master/deploy-plugin'
 	description = 'Deploy as service!'
 	tags = ['deploy', 'systemctl', 'spring boot']
   
 	plugins {
 	  greetingsPlugin {
-		id = 'com.smojum.deploy'
+		id = 'com.smojum.deploy.rhel'
 		displayName = 'Deploy spring boot application as systemctl plugin'
 	  }
 	}
