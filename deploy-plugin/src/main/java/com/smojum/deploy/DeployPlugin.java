@@ -8,7 +8,7 @@ public class DeployPlugin implements Plugin<Project> {
 	public void apply(Project project) {
 		project.getTasks().create("deploy", Deploy.class, (task) -> {
 			task.setMessage("Hello");
-			task.setRecipient("World");
+			task.setRecipient("Santanu");
 		});
 	}
 }
