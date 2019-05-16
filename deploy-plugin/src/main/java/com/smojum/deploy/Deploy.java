@@ -1,30 +1,18 @@
 package com.smojum.deploy;
 
 import org.gradle.api.DefaultTask;
+import org.gradle.api.tasks.InputDirectory;
 import org.gradle.api.tasks.TaskAction;
 
+import java.io.File;
+
 public class Deploy extends DefaultTask {
-	private String message;
-	private String recipient;
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getRecipient() {
-		return recipient;
-	}
-
-	public void setRecipient(String recipient) {
-		this.recipient = recipient;
-	}
-
+	@InputDirectory
+	File inputDir;
 	@TaskAction
 	void sayGreeting() {
-		System.out.printf("%s, %s!\n", getMessage(), getRecipient());
+
+		System.out.printf("%s, %s!\n", inputDir.getAbsoluteFile(), System.getProperty("profile"));
 	}
 }

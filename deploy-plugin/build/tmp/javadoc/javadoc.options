@@ -1,0 +1,7 @@
+-classpath 'C:\\Users\\smojum\\git\\gradle-plugin\\deploy-plugin\\build\\classes\\java\\main;C:\\Users\\smojum\\git\\gradle-plugin\\deploy-plugin\\build\\resources\\main;C:\\Users\\smojum\\.gradle\\caches\\4.6\\generated-gradle-jars\\gradle-api-4.6.jar;C:\\Gradle\\gradle-3.5\\lib\\groovy-all-2.4.12.jar;C:\\Gradle\\gradle-3.5\\lib\\gradle-installation-beacon-4.6.jar'
+-d 'C:\\Users\\smojum\\git\\gradle-plugin\\deploy-plugin\\build\\docs\\javadoc'
+-doctitle 'deploy-plugin 0.1 API'
+-quiet 
+-windowtitle 'deploy-plugin 0.1 API'
+'C:\\Users\\smojum\\git\\gradle-plugin\\deploy-plugin\\src\\main\\java\\com\\smojum\\deploy\\Deploy.java'
+'C:\\Users\\smojum\\git\\gradle-plugin\\deploy-plugin\\src\\main\\java\\com\\smojum\\deploy\\DeployPlugin.java'

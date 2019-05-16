@@ -5,9 +5,11 @@ buildscript {
 	dependencies { classpath "com.gradle.publish:plugin-publish-plugin:0.9.10" }
 }
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: "com.gradle.plugin-publish"
+apply plugin: "java-gradle-plugin"
 
 
 // In this section you declare where to find the dependencies of your project
@@ -23,8 +25,25 @@ dependencies {
 	testCompile gradleTestKit()
 }
 
-version = "1.2"
+version = "0.1"
 group = "com.smojum.deploy.rhel"
+sourceSets {
+	integrationTest {
+		groovy.srcDir file('src/integTest/groovy')
+		resources.srcDir file('src/integTest/resources')
+		compileClasspath += sourceSets.main.output + configurations.testRuntime
+		runtimeClasspath += output + compileClasspath
+	}
+}
+
+gradlePlugin {
+	plugins {
+		deployPlugin {
+			id = 'com.smojum.deploy.rhel'
+			implementationClass = 'com.smojum.deploy.DeployPlugin'
+		}
+	}
+}
 
 pluginBundle {
 	website = 'http://www.gradle.org/'
@@ -33,7 +52,7 @@ pluginBundle {
 	tags = ['deploy', 'systemctl', 'spring boot']
   
 	plugins {
-	  greetingsPlugin {
+	  deployPlugin {
 		id = 'com.smojum.deploy.rhel'
 		displayName = 'Deploy spring boot application as systemctl plugin'
 	  }
